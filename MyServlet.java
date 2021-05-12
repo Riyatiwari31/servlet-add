@@ -5,76 +5,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MyServlet extends HttpServlet {
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MyServlet</title>");            
-            out.println("</head>");
-            out.println("<body Bgcolor=\"pink\">");
-            out.println("<h1 align=\"center\"> Shri Vaishnav Vidhyapeeta Vishvavidhyla</h1>");
-            out.println("<h2 align=\"center\"> Mst I<sup>th</sup>Marks Sheet</h2>");
-            out.println("<table border=\"9\" align=\"center\">");
-            out.println("<tr>\n" +
-"<th> Name </th>\n" +
-"<th> IIT</th>\n" +
-"<th> DLCD </th>\n" +
-"<th> CPI</th>\n" +
-"<th> Maths </th>\n" +
-"</tr>");
-            out.println("<tr>\n" +
-"<td> rajesh </td>\n" +
-"<td> 78 </td>\n" +
-"<td> 75 </td>\n" +
-"<td> 88 </td>\n" +
-"<td> 98 </td>\n" +
-"</tr>");
-            out.println("<td> Riya </td>\n" +
-"<td> 98 </td>\n" +
-"<td> 95 </td>\n" +
-"<td> 98 </td>\n" +
-"<td> 98 </td>\n" +
-"</tr>");
-            out.println("<td> ram</td>\n" +
-"<td> 74 </td>\n" +
-"<td> 77 </td>\n" +
-"<td> 80 </td>\n" +
-"<td> 70 </td>\n" +
-"</tr>");
-            out.println("<td> Vaishnavi </td>\n" +
-"<td> 98 </td>\n" +
-"<td> 85 </td>\n" +
-"<td> 98 </td>\n" +
-"<td> 88 </td>\n" +
-"</tr>");
-            out.println("<h4>Click hear to go to<a href=\"why\">Thank you page</a> </h4>");
-            out.println("<h4><a href=\"index.html\">Back</a> </h4>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
+public class addme extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-   
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }
+        int num1 = Integer.parseInt(request.getParameter("num1"));
+int num2 = Integer.parseInt(request.getParameter("num2"));
+int sum = num1 + num2;
+int product = num1 * num2;
+int sub = num1 - num2;
+PrintWriter output = response.getWriter();
+output.println("The Answer :"+sum +"\n The product :"+product+ "\nThe SUBTRACT :"+sub);
 }
+    }
